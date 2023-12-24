@@ -6,6 +6,6 @@ class Solution {
             if (i % 2 == 0 && s.charAt(i) == '1') count++;
             if (i % 2 == 1 && s.charAt(i) == '0') count++;
         }
-        return Math.min(count, n - count);
+        return Math.min(count, n - count); // pushing the code
     }
 }
