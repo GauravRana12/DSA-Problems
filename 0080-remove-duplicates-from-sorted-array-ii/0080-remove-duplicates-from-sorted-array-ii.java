@@ -1,22 +1,18 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        if (nums.length <= 2)
+        if (nums.length <= 2) {
             return nums.length;
-        int prev = 1;       // point to previous
-        int curr = 2;       // point to current
-        // Traverse all elements through loop...
-        while (curr < nums.length) {
-            // If the curr index matches the previous two elements, skip it...
-            if (nums[curr] == nums[prev] && nums[curr] == nums[prev - 1]) {
-                curr++;
-            }
-            // Otherwise, count that element and update...
-            else {
-                prev++;
-                nums[prev] = nums[curr];
-                curr++;
+        }
+
+        int index = 2;
+
+        for (int i = 2; i < nums.length; i++) {
+            if (nums[i] != nums[index - 2]) {
+                nums[index] = nums[i];
+                index++;
             }
         }
-        return prev + 1;  
+
+        return index;
     }
 }
