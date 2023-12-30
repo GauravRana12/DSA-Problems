@@ -1,16 +1,15 @@
 class Solution {
     public boolean makeEqual(String[] words) {
-         Map<Character, Integer> counts = new HashMap<>();
-        
+         int[] counts = new int[26];
         for (String word : words) {
             for (char c : word.toCharArray()) {
-                counts.put(c, counts.getOrDefault(c, 0) + 1);
+                counts[c - 'a']++;
             }
         }
         
         int n = words.length;
-        for (Map.Entry<Character, Integer> entry : counts.entrySet()) {
-            if (entry.getValue() % n != 0) {
+        for (int val : counts) {
+            if (val % n != 0) {
                 return false;
             }
         }
