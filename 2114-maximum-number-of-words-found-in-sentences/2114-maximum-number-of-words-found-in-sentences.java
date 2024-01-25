@@ -1,10 +1,20 @@
 class Solution {
-    public int mostWordsFound(String[] sentences) {
-        int ans=0;
-        for(String s:sentences){
-            String[] str = s.split("\\s+");
-            ans=Math.max(str.length,ans);
+    
+        public int mostWordsFound(String[] sentences) {
+        int count = 0;
+        for(int i = 0; i< sentences.length;i++){
+            count = Math.max(count,countwords(sentences[i]));
         }
-        return ans;
+        return count;
+    }
+     private int countwords(String str){
+        int w=0;
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)==' '){
+                w++;
+            }
+        }
+        w++;
+        return w;
     }
 }
